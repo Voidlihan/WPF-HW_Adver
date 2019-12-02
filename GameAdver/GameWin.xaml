@@ -1,0 +1,51 @@
+﻿<Window x:Class="GameAdver.GameWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameAdver"
+        mc:Ignorable="d"
+        Foreground="Black"
+        Background="DarkOrange"
+        BorderBrush="RoyalBlue"
+        Title="GameWindow" Height="450" Width="800" ResizeMode="NoResize">
+    <ScrollViewer BorderBrush="DarkBlue">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.RowSpan="2" Grid.Column="0">
+                <Image Margin="0 5 0 0" x:Name="mainImage" HorizontalAlignment="Center" VerticalAlignment="Top" Width="200" Height="200"/>
+                <TextBlock x:Name="rating" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Rating: 9.3/10" Margin="30 10" FontSize="20" />
+                <ListBox x:Name="imagesOfGame" Grid.Row="2" Grid.Column="1" Background="DarkSlateBlue" FontFamily="Comic Sans MS" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel IsItemsHost="True" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="10 0 0 0">
+                                <Image Width="100" Height="100" Source="{Binding Value}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <TextBlock x:Name="name" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="30 30" FontSize="40" Text="Game Name: Fallout" TextWrapping="Wrap"/>
+                <TextBlock x:Name="developer" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Developer: " Margin="30 0 0 10" FontSize="20"/>
+                <TextBlock x:Name="genre" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Genre: " Margin="30 0 0 10" FontSize="20"/>
+                <TextBlock x:Name="price" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Price: " Margin="30 0 0 10" FontSize="20"/>
+                <TextBlock x:Name="releaseDate" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Release date: " Margin="30 0 0 10" FontSize="20"/>
+                <TextBlock x:Name="description" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Description: " Margin="30 0" FontSize="20" TextWrapping="Wrap"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>
